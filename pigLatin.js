@@ -1,11 +1,11 @@
 
 function translatePigLatin(str) {
   var re = /^[aeiou]$/i;
-  //if it starts with a constanant just add way
+  //if it starts with a vowel just add way
   if (re.test(str[0]) === true){
     return str.substr(str[1], str.length) + "way";
   }
-  //if it doesn't start with a constanant cut them off
+  //if it doesn't start with a vowel cut off consonants
   //and add them to the end
   //then add ay
   if (re.test(str[0]) === false){
