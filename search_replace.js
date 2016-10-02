@@ -1,47 +1,9 @@
 
-function myReplace(str, before, after) {
-  var arr = [];
- 
-    var upperArray = [];
-    if (before[0] === before[0].toUpperCase()){
-      var upper = after[0].toUpperCase();
-    }
-     if (before[0] === before[0].toLowerCase()){
-      var upper = after[0].toLowerCase();
-    }
-   
-    for (i=0;i<after.length;i++){
-    upperArray.push(after[i]);
-     
-    }
-    
-    upperArray.shift();
-    upperArray.unshift(upper);
-    var joinUpper = upperArray.join("");
-    var split = str.split(" ");
-  
-
-    for (i=0;i<split.length;i++){
-      
-      if(split[i] == before){
-        for (j=i+1;j<split.length+1;j++){
-          var ending = split.splice(j);
-        }
-        arr = split.splice(i);
-        
-      }
-    }
-  
-    var replace = ending.join(" ");
-    var search = split.push(joinUpper);
-    var replaced = split.push(replace);
-    
-    
-    var finish = split.join(" ");
-    
-    
-  
-  return finish;
+function replace(str, before, after) {
+  var re = new RegExp(before, 'g');
+  var upper = /^[A-Z]/;
+  if (upper.test(before)) {
+    after = after.substr(0, 1).toUpperCase() + after.substr(1);
+  }
+  return str.replace(re, after);
 }
-
-myReplace("Let us go to the store", "store", "mall");
