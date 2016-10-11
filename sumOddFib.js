@@ -11,7 +11,7 @@ function sumFibs(num) {
   
   //filter out the odd numbers
   function isOdd(value) {
-  return value%2 !== 0 && value < num; 
+  return value%2 !== 0 && value <= num; 
 }
 var filtered = fibBox.filter(isOdd);
   //sum only the odd numbers is the array;
